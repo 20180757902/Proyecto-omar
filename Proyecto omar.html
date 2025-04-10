@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Piezas de Repuesto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('4to bate background.jpeg'); /* Cambia 'ruta/a/tu/imagen.jpg' por la ruta de tu imagen */
+            background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+        }
+
+
+        #carrito {
+    background-color: #f8f9fa; /* Fondo claro para un buen contraste */
+    padding: 40px 20px; /* Espaciado adecuado */
+    border-radius: 10px; /* Bordes redondeados */
+    margin: 20px auto; /* Centrar la sección */
+    max-width: 900px; /* Limitar el ancho máximo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#carrito-logo {
+    width: 200px; /* Aumentar tamaño del logo del carrito */
+    height: auto;
+    display: block;
+    margin: 0 auto 30px; /* Centrar y agregar margen inferior */
+}
+
+h2 {
+    color: #35424a; /* Color oscuro para el título */
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#carrito {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente para que el texto sea visible sobre cualquier imagen */
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 900px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más fuerte para destacar */
+    backdrop-filter: blur(5px); /* Agrega un desenfoque suave al fondo para mejorar el contraste */
+}
+
+#carrito-logo {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto 30px;
+}
+
+h2 {
+    color: #2c3e50; /* Color oscuro para buen contraste */
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#carrito-container {
+    background-color: #ffffff; /* Fondo blanco para los elementos del carrito */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-bottom: 20px;
+}
+
+#carrito-container p {
+    font-size: 1.2rem;
+    color: #7f8c8d; /* Gris suave para las descripciones, para que no se vea tan fuerte como el negro */
+    text-align: center;
+}
+
+/* Para el texto de "Realizar pago" */
+#carrito-container .realizar-pago {
+    font-size: 1.2rem;
+    color: #95a5a6; /* Gris claro */
+    text-align: center;
+    font-weight: bold; /* Para darle más énfasis */
+}
+
+/* Para el texto de "Suscríbete a nuestro boletín" */
+#carrito-container .suscribete-boletin {
+    font-size: 1.2rem;
+    color: #f39c12; /* Naranja suave para hacerlo más visible y atractivo */
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+#carrito-container div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#carrito-container div:last-child {
+    border-bottom: none;
+}
+
+#carrito-container div h4 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #34495e; /* Color ligeramente más oscuro para los nombres de los productos */
+}
+
+#carrito-container div p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #2c3e50; /* Color más oscuro para los precios */
+}
+
+#carrito-container .remove-btn {
+    background-color: #e74c3c; /* Rojo brillante para eliminar */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#carrito-container .remove-btn:hover {
+    background-color: #c0392b; /* Rojo oscuro cuando pasa el mouse */
+}
+
+#checkout-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#checkout-section h3 {
+    font-size: 1.8rem;
+    color: #2c3e50; /* Color oscuro para los subtítulos */
+}
+
+#checkout-section .checkout-btn {
+    background-color: #27ae60; /* Verde brillante para el botón de checkout */
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#checkout-section .checkout-btn:hover {
+    background-color: #2ecc71; /* Verde más brillante al pasar el mouse */
+}
+
+#carrito-container .total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #34495e;
+    text-align: right;
+    margin-top: 15px;
+}
+
+
+#encuesta {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#encuesta h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#encuesta p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+#encuesta label {
+    font-size: 1.1em;
+    margin-top: 10px;
+    display: block;
+}
+
+#encuesta select, #encuesta textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#encuesta button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 15px;
+}
+
+#encuesta button:hover {
+    background-color: #0056b3;
+}
+
+
+#categorias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.categoria {
+    width: 48%;
+    background-color: #f4f4f4;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.categoria h3 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.categoria p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+.categoria a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.categoria a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+        header {
+            background: rgba(224, 224, 224, 0.8); /* Color de fondo claro con opacidad para contraste */
+            color: #35424a; /* Color del texto */
+            padding: 0; /* Eliminar el padding superior e inferior */
+            text-align: center;
+        }
+        #logo {
+            width: 300px; /* Ancho del logo */
+            height: auto; /* Mantener la proporción */
+            margin: 20px auto; /* Margen superior e inferior, y centrado horizontalmente */
+            display: block; /* Mostrar el logo como un bloque */
+            object-fit: cover; /* Ajustar el tamaño del logo para que se vea completo */
+        }
+        #search {
+            margin: 10px;
+            padding: 5px;
+        }
+        nav {
+            margin: 10px;
+        }
+
+
+        #filtros {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#filtros h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#filtros select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#filtros button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+#filtros button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        nav button {
+            margin: 0 5px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #45a049; /* Color de fondo para los botones */
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+        nav button:hover {
+            background-color: #35424a; /* Color de fondo al pasar el mouse */
+        }
+        .slider {
+            position: relative;
+            max-width: 600px; /* Ancho máximo del slider */
+            margin: 20px auto; /* Centrar el slider */
+            overflow: hidden; /* Ocultar imágenes fuera del contenedor */
+        }
+        .slider img {
+            width: 100%; /* Hacer que la imagen ocupe todo el ancho del slider */
+            border-radius: 5px; /* Bordes redondeados */
+            display: none; /* Ocultar todas las imágenes inicialmente */
+        }
+        .active {
+            display: block; /* Mostrar solo la imagen activa */
+        }
+        .section {
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            min-height: 100vh; /* Cada sección ocupa toda la altura de la ventana */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centrar contenido verticalmente */
+            align-items: center; /* Centrar contenido horizontalmente */
+        }
+        #inicio {
+            background-color: #d4edda; /* Verde claro */
+        }
+        #catalogo {
+            background-color: #cce5ff; /* Azul claro */
+        }
+        #sobre {
+            background-color: #fff3cd; /* Amarillo suave */
+        }
+        #contacto {
+            background-color: #ffeeba; /* Naranja suave */
+        }
+        #carrito {
+            background-color: #c3e6cb; /* Verde oscuro */
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #35424a;
+            color: #ffffff;
+            position: relative; 
+            bottom: 0;
+            width: 100%;
+
+            
+        }
+
+        #logo-inicio {
+            width: 350px; /* Ajusta el tamaño según sea necesario */
+            height: auto; /* Mantener la proporción */
+            margin: 20px 0; /* Espaciado superior e inferior */
+        }
+        .catalogo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .pieza-container {
+            display: flex;
+            flex-wrap: wrap; /* Permitir que las piezas se envuelvan */
+            justify-content: center; /* Centrar las piezas */
+            margin: 20px 0;
+        }
+        .pieza {
+            background: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 15px;
+            width: 150px; /* Ajusta el ancho según sea necesario */
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: none; /* Ocultar todas las piezas inicialmente */
+        }
+        .pieza img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px; /* Bordes redondeados para la imagen */
+        }
+
+        /* Diseño general */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo de las secciones */
+.seccion {
+    background-color: #fff;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.titulo {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.subtitulo {
+    font-size: 1.5em;
+    color: #007bff;
+}
+
+.texto-disponibilidad {
+    font-size: 1.1em;
+}
+
+.pendiente {
+    color: #f39c12;
+}
+
+.disponible {
+    color: #27ae60;
+}
+
+/* Estilo para los campos de texto */
+.campo-texto {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.1em;
+    background-color: #fafafa;
+}
+
+/* Botones de acción */
+.btn-accion {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.btn-accion:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para las categorías */
+.categoria {
+    margin-bottom: 20px;
+}
+
+.categoria p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Estilo para el input y textarea */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1.1em;
+    background-color: #fafafa;
+}
+
+        button {
+            background: #35424a;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            cursor: pointer; 
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px; /* Ancho máximo para los botones de navegación */
+            margin: 20px auto; /* Centrar los botones */
+        }
+        #carrito-logo {
+            width: 150px; /* Aumenta el tamaño del logo del carrito */
+            height: auto; /* Mantener la proporción */
+            margin: 20px 0; /* Espaciado superior e inferior */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="c:\Users\e.perez155\Downloads\Logo.jpg" alt=" Logo de la Tienda" id="logo" />
+
+        <nav>
+            <button id="inicio-button" onclick="scrollToSection('inicio')">Inicio</button>
+            <button id="catalogo-button" onclick="scrollToSection('catalogo')">Catálogo</button>
+            <button id="sobre-button" onclick="scrollToSection('sobre')">Sobre Nosotros</button>
+            <button id="contacto-button" onclick="scrollToSection('contacto')">Contacto</button>
+            <button id="cart-button" onclick="scrollToSection('carrito')">Carrito (0)</button>
+        </nav>
+        <h1>Catálogo de Piezas de Repuesto</h1>
+        <input type="text" id="search" placeholder="Buscar piezas..." />
+    </header>
+    <main>
+        <div class="slider">
+            <img src="piezas 1.jpg" alt="Slide 1" class="active">
+            <img src="piezas 2.jpg" alt="Slide 2">
+            <img src="piezas 3.jpg" alt="Slide 3">
+        </div>
+
+
+ 
+
+
+        <div id="inicio" class="section active">
+            <img src="c:\Users\e.perez155\Downloads\Logo.jpg" alt="Logo de la Tienda" id="logo-inicio" /> <!-- Cambia la ruta a tu imagen del logo -->
+            <h2>Bienvenido a nuestra Tienda</h2>
+            <h3>¡Calidad y Confianza en Cada Pieza!</h3>
+            <p>En nuestra tienda, entendemos que cada pieza cuenta. Por eso, ofrecemos una amplia variedad de piezas de repuesto de alta calidad, diseñadas para durar y funcionar a la perfección. Ya sea que necesites una pieza específica para tu vehículo o un componente para tu proyecto, aquí encontrarás lo que buscas.</p>
+            <p>Nos enorgullece ofrecer productos que cumplen con los más altos estándares de calidad. Cada pieza ha sido seleccionada cuidadosamente para garantizar su durabilidad y rendimiento. Además, nuestro equipo de expertos está siempre disponible para ayudarte a encontrar la pieza adecuada para tus necesidades.</p>
+            <p>¡Explora nuestro catálogo y descubre por qué somos la elección preferida de los profesionales y aficionados! Con precios competitivos y un servicio al cliente excepcional, estamos aquí para ayudarte a mantener tus proyectos en marcha. ¡No esperes más, tu próxima pieza está a solo un clic de distancia!</p>
+            <p>Además, ofrecemos envíos rápidos y seguros, así como una política de devolución sin complicaciones. Tu satisfacción es nuestra prioridad, y estamos comprometidos a brindarte la mejor experiencia de compra posible.</p>
+        </div>
+
+        <div id="catalogo" class="section">
+            <h2>Descripción de las Piezas</h2>
+            <div class="catalogo">
+                <div class="pieza-container" id="pieza-container">
+                    <!-- Las piezas se mostrarán aquí -->
+                </div>
+                <div class="nav-buttons">
+                    <button id="prev-button" onclick="mostrarPiezas(-1)">&#10094; Anterior</button>
+                    <button id="next-button" onclick="mostrarPiezas(1)">Siguiente &#10095;</button>
+                </div>
+            </div>
+            <h3>Imágenes de las piezas</h3>
+            <p>Explora nuestras piezas recomendadas según tus necesidades. Ya sea que busques piezas para mantenimiento, reparación o mejora, aquí encontrarás lo que necesitas para mantener tu vehículo o proyecto en óptimas condiciones.</p>
+        </div>
+
+        <div id="sobre" class="section">
+            <h2>Sobre Nosotros</h2>
+            <p>Somos una tienda dedicada a la venta de piezas de repuesto de alta calidad. Nuestro objetivo es proporcionar a nuestros clientes los mejores productos y un excelente servicio al cliente.</p>
+            <p>Ubicados en el corazón de la ciudad, en la Avenida Principal 123, ofrecemos un amplio catálogo de piezas para diversas marcas y modelos. Nuestro equipo está compuesto por profesionales con años de experiencia en el sector, listos para asesorarte en cada compra.</p>
+            <p>Contamos con un compromiso firme hacia la satisfacción del cliente, asegurando que cada pieza que vendemos cumple con los estándares más altos de calidad y rendimiento.</p>
+        </div>
+
+        <div id="contacto" class="section">
+            <h2>Contacto</h2>
+            <p>Si tienes alguna pregunta, no dudes en contactarnos a través de nuestro correo electrónico: contacto@tiendapiezas.com</p>
+            <p>También puedes llamarnos al número: (123) 456-7890. Estamos disponibles de lunes a viernes de 9:00 a 18:00.</p>
+            <p>Visítanos en nuestra tienda física en la Avenida Principal 123, donde nuestro equipo estará encantado de ayudarte a encontrar la pieza que necesitas. Además, ofrecemos atención personalizada para resolver cualquier duda que puedas tener sobre nuestros productos.</p>
+            <p>Esta página web es de República Dominicana, y estamos comprometidos a ofrecerte el mejor servicio y productos de calidad.</p>
+        </div>
+
+
+
+
+
+    
+
+    
+
+
+        <div id="encuesta" class="section">
+            <h2>¡Tu Opinión es Importante!</h2>
+            <p>Ayúdanos a mejorar. ¿Cómo calificarías tu experiencia en nuestro sitio?</p>
+            
+            <form id="encuestaForm">
+                <label for="satisfaccion">¿Cómo calificarías la experiencia general?</label>
+                <select id="satisfaccion" name="satisfaccion">
+                    <option value="excelente">Excelente</option>
+                    <option value="buena">Buena</option>
+                    <option value="regular">Regular</option>
+                    <option value="mala">Mala</option>
+                </select>
+                <br>
+                
+                <label for="mejorar">¿Qué te gustaría que mejoráramos?</label>
+                <textarea id="mejorar" name="mejorar" placeholder="Escribe tus sugerencias"></textarea>
+                <br>
+        
+                <button type="submit">Enviar Opinión</button>
+            </form>
+        </div>
+
+
+
+
+        <div id="filtros" class="section">
+            <h2>Filtrar por:</h2>
+            <form id="filtrosForm">
+                <label for="marca">Marca</label>
+                <select id="marca" name="marca">
+                    <option value="">Seleccionar Marca</option>
+                    <!-- Aquí se agregarían las marcas disponibles -->
+                </select>
+                
+                <label for="modelo">Modelo</label>
+                <select id="modelo" name="modelo">
+                    <option value="">Seleccionar Modelo</option>
+                    <!-- Aquí se agregarían los modelos disponibles -->
+                </select>
+        
+                <label for="anio">Año</label>
+                <select id="anio" name="anio">
+                    <option value="">Seleccionar Año</option>
+                    <!-- Aquí se agregarían los años disponibles -->
+                </select>
+        
+                <label for="tipo_repuesto">Tipo de Repuesto</label>
+                <select id="tipo_repuesto" name="tipo_repuesto">
+                    <option value="">Seleccionar Tipo</option>
+                    <!-- Aquí se agregarían los tipos de repuestos disponibles -->
+                </select>
+        
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+
+
+        <div id="comparador">
+            <h2>Comparar Productos</h2>
+            <form>
+                <select>
+                    <option value="repuesto1">Repuesto 1</option>
+                    <option value="repuesto2">Repuesto 2</option>
+                </select>
+                <button type="submit">Comparar</button>
+            </form>
+        </div>
+        
+        
+
+        <div id="compatibilidad">
+            <h2>Verifica la Compatibilidad</h2>
+            <form>
+                <label for="vehiculo">Introduce tu vehículo (Marca, Modelo, Año):</label>
+                <input type="text" id="vehiculo" placeholder="Ej: Toyota, Corolla, 2020">
+                <button type="submit">Verificar</button>
+            </form>
+            <p id="resultado"></p>
+        </div>
+
+        <div id="inventario">
+            <h2>Disponibilidad de Productos</h2>
+            <p id="producto-disponible">Producto disponible: Sí</p>
+        </div>
+        
+        
+
+        
+
+        
+        <div id="pago">
+            <h3>Realizar Pago</h3>
+            <input type="text" id="direccion" placeholder="Dirección de Envío">
+            <input type="text" id="tarjeta" placeholder="Número de Tarjeta">
+            <button onclick="procesarPago()">Pagar</button>
+        </div>
+
+        <div id="login">
+            <input type="text" id="username" placeholder="Usuario">
+            <input type="password" id="password" placeholder="Contraseña">
+            <button onclick="login()">Iniciar sesión</button>
+        </div>
+        
+
+        
+        <div id="newsletter">
+            <h3>Suscríbete a nuestro boletín</h3>
+            <input type="email" id="email" placeholder="Tu correo electrónico">
+            <button onclick="suscribirse()">Suscribirse</button>
+        </div>
+
+
+        
+        <div id="categorias" class="section">
+            <h2>Categorías de Piezas</h2>
+            <div class="categoria">
+                <h3><a href="/categorias/motores">Motores</a></h3>
+                <p>Encuentra piezas para motor de la mejor calidad y rendimiento.</p>
+            </div>
+            <div class="categoria">
+                <h3><a href="/categorias/frenos">Frenos</a></h3>
+                <p>Piezas para frenos de todo tipo de vehículos, garantizadas.</p>
+            </div>
+            <div class="categoria">
+                <h3><a href="/categorias/suspension">Suspensión</a></h3>
+                <p>Mejora la estabilidad de tu vehículo con nuestras piezas de suspensión.</p>
+            </div>
+            <div class="categoria">
+                <h3><a href="/categorias/transmision">Transmisión</a></h3>
+                <p>Piezas para la transmisión de tu coche, de marcas de confianza.</p>
+            </div>
+        </div>
+
+        <div id="envio">
+            <h2>Seguimiento de Envíos</h2>
+            <form>
+                <label for="numero-guia">Introduce tu número de guía:</label>
+                <input type="text" id="numero-guia" placeholder="Número de guía">
+                <button type="submit">Rastrear Envío</button>
+            </form>
+            <p id="estado-envio">Estado del envío: Pendiente</p>
+        </div>
+        
+
+
+        <div id="reseñas">
+            <h2>Reseñas de Productos</h2>
+            <form>
+                <label for="comentario">Deja tu opinión</label>
+                <textarea id="comentario"></textarea>
+                <button type="submit">Enviar Reseña</button>
+            </form>
+        </div>
+        
+        
+        
+
+
+        <div id="carrito" class="section">
+            <img src="c:\Users\e.perez155\Downloads\Logo carrito.jpg" alt="Logo del Carrito" id="carrito-logo" /> <!-- Cambia la ruta a tu imagen del carrito -->
+            <h2>Carrito de Compras</h2>
+            <div id="carrito-container">
+                <p>No tienes artículos en tu carrito.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Tu tienda de Piezas de Repuesto</p>
+    </footer>
+    <script>
+        // Simulación de base de datos
+        const piezas = [
+            {id: 1, nombre: "Bujias incandescentes de Dodge", descripción: "Bujias incandescentes de Dodge de gama alta.", precio: 6000.00, imagen: "c:\Users\e.perez155\Downloads\Bujias encandescentes.png"},
+            {id: 2, nombre: "Bomba de agua de Dodge", descripción: "Bomba de Agua de marca Dodge de buena calidad.", precio: 5500.00, imagen: "c:\Users\e.perez155\Downloads\Bomba de agua.png"},
+            {id: 3, nombre: "Bobina de encendido de Dodge", descripción: "Bobina de encendido de la marca Dodge de la mejor calidad y importada directamente desde la empresa.", precio: 7750.00, imagen: "c:\Users\e.perez155\Downloads\bobina encendido.jpg"},
+            {id: 4, nombre: "Bomba del Lavaparabrisas", descripción: "Bomba del Lavaparabrisas de marca Dodge de rango medio.", precio: 2000.00, imagen: "c:\Users\e.perez155\Downloads\Dodge bomba.jpg"},
+            {id: 5, nombre: "Buje de Rueda", descripción: "Buje de Rueda de marca Dodge de Gama alta.", precio: 9500.00, imagen: "Buje-De-Rueda.png"},
+            {id: 6, nombre: "Alternador", descripción: "Alternador de marca Dodge importado directamente desde la empresa.", precio: 5000.00, imagen: "c:\Users\e.perez155\Downloads\Alternador.png"},
+            {id: 7, nombre: "Filtro de aire Deportivo", descripción: "Filtro de Aire Deportivo de la mejor calidad y funcionalidad.", precio: 4200.00, imagen: "c:\Users\e.perez155\Downloads\Filtro de aire.png"},
+            {id: 8, nombre: "Motor de Arranque", descripción: "Motor de Arranque para Dodge de gama alta y buenas condiciones.", precio: 35000.00, imagen: "Motor-De-Arranque.png"},
+            {id: 9, nombre: "Tapa De Deposito de Combustible", descripción: "Tapa de Deposito de Combustible de buena calidad y importado directamente de la empresa.", precio: 3200.00, imagen: "Tapa-De-Deposito-De-Combustible.png"},
+            {id: 10, nombre: "Discos de Freno", descripción: "Discos de freno de la marca Dodge importados desde la empresa y de la mejor calidad.", precio: 6000.00, imagen: "c:\Users\e.perez155\Downloads\Discos.png"},
+        ];
+
+        let indicePiezaActual = 0;
+        const piezasPorPagina = 5;
+        let carrito = []; // Array para almacenar los artículos del carrito
+
+        // Función para desplazar la vista a la sección seleccionada
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Cargar las piezas en el catálogo
+        function loadPiezas() {
+            const piezaContainer = document.getElementById('pieza-container');
+            piezaContainer.innerHTML = ''; // Limpiar el contenedor antes de cargar nuevas piezas
+            const start = indicePiezaActual * piezasPorPagina;
+            const end = start + piezasPorPagina;
+            const piezasAMostrar = piezas.slice(start, end);
+
+            piezasAMostrar.forEach(pieza => {
+                const piezaDiv = document.createElement('div');
+                piezaDiv.classList.add('pieza');
+                piezaDiv.innerHTML = `
+                    <img src="${pieza.imagen}" alt="${pieza.nombre}">
+                    <h4>${pieza.nombre}</h4>
+                    <p>${pieza.descripción}</p>
+                    <p>Precio: $${pieza.precio.toFixed(2)}</p>
+                    <button onclick="agregarAlCarrito(${pieza.id})">Agregar al Carrito</button>
+                `;
+                piezaContainer.appendChild(piezaDiv);
+                piezaDiv.style.display = 'block'; // Mostrar la pieza
+            });
+        }
+
+        function buscarPiezas() {
+    const searchTerm = document.getElementById('search').value.toLowerCase();
+    const filteredPiezas = piezas.filter(pieza => 
+        pieza.nombre.toLowerCase().includes(searchTerm) || 
+        pieza.descripcion.toLowerCase().includes(searchTerm)
+    );
+    mostrarPiezasFiltradas(filteredPiezas);
+}
+
+function mostrarPiezasFiltradas(piezasFiltradas) {
+    const piezaContainer = document.getElementById('pieza-container');
+    piezaContainer.innerHTML = ''; 
+    piezasFiltradas.forEach(pieza => {
+        const piezaDiv = document.createElement('div');
+        piezaDiv.classList.add('pieza');
+        piezaDiv.innerHTML = `
+            <img src="${pieza.imagen}" alt="${pieza.nombre}">
+            <h4>${pieza.nombre}</h4>
+            <p>${pieza.descripcion}</p>
+            <p>Precio: $${pieza.precio.toFixed(2)}</p>
+            <button onclick="agregarAlCarrito(${pieza.id})">Agregar al Carrito</button>
+        `;
+        piezaContainer.appendChild(piezaDiv);
+    });
+}
+
+
+document.getElementById('search').addEventListener('input', function() {
+    let query = this.value;
+    if (query.length > 2) {
+        // Llamar a una API o a la base de datos para obtener sugerencias
+        // Aquí solo mostraríamos las sugerencias de ejemplo
+        let sugerencias = ['Freno Disco', 'Motor 2.0', 'Filtro Aire'];  // Ejemplo
+        let resultados = sugerencias.filter(s => s.toLowerCase().includes(query.toLowerCase()));
+        let sugerenciasDiv = document.getElementById('sugerencias');
+        sugerenciasDiv.innerHTML = resultados.map(s => `<p>${s}</p>`).join('');
+    } else {
+        document.getElementById('sugerencias').innerHTML = '';
+    }
+});
+
+
+
+document.querySelector('#compatibilidad form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    let vehiculo = document.getElementById('vehiculo').value;
+    // Lógica para verificar la compatibilidad
+    let repuestosCompatibles = ['Filtro Aire', 'Bujías', 'Aceite'];  // Ejemplo
+    document.getElementById('resultado').textContent = 'Repuestos Compatibles: ' + repuestosCompatibles.join(', ');
+});
+
+
+
+
+
+let productoEnStock = true;  // Este valor debe provenir de la base de datos
+document.getElementById('producto-disponible').textContent = productoEnStock ? 'Producto disponible: Sí' : 'Producto agotado';
+
+
+
+
+
+
+
+
+        // Función para agregar una pieza al carrito
+        function agregarAlCarrito(id) {
+            const pieza = piezas.find(p => p.id === id);
+            if (pieza) {
+                carrito.push(pieza);
+                actualizarCarrito();
+            }
+        }
+
+        // Función para actualizar la visualización del carrito
+        function actualizarCarrito() {
+            const carritoContainer = document.getElementById('carrito-container');
+            carritoContainer.innerHTML = ''; // Limpiar el contenedor del carrito
+
+            if (carrito.length === 0) {
+                carritoContainer.innerHTML = '<p>No tienes artículos en tu carrito.</p>';
+            } else {
+                carrito.forEach(pieza => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.innerHTML = `
+                        <h4>${pieza.nombre}</h4>
+                        <p>Precio: $${pieza.precio.toFixed(2)}</p>
+                    `;
+                    carritoContainer.appendChild(itemDiv);
+                });
+            }
+        }
+
+        // Función para mostrar las piezas según la navegación
+        function mostrarPiezas(direccion) {
+            indicePiezaActual += direccion;
+            if (indicePiezaActual < 0) {
+                indicePiezaActual = 0; // No permitir ir a la página anterior si ya estamos en la primera
+            } else if (indicePiezaActual * piezasPorPagina >= piezas.length) {
+                indicePiezaActual--; // No permitir ir a la siguiente página si no hay más piezas
+            }
+            loadPiezas();
+        }
+
+        function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Aquí se puede agregar una lógica para verificar el usuario (en un sistema real, con una API)
+    alert(`Bienvenido, ${username}`);
+}
+
+
+function actualizarCarrito() {
+    const carritoContainer = document.getElementById('carrito-container');
+    carritoContainer.innerHTML = ''; 
+
+    if (carrito.length === 0) {
+        carritoContainer.innerHTML = '<p>No tienes artículos en tu carrito.</p>';
+        document.getElementById('cart-button').innerText = 'Carrito (0)';
+    } else {
+        let total = 0;
+        carrito.forEach(pieza => {
+            const itemDiv = document.createElement('div');
+            itemDiv.innerHTML = `
+                <h4>${pieza.nombre}</h4>
+                <p>Precio: $${pieza.precio.toFixed(2)}</p>
+            `;
+            carritoContainer.appendChild(itemDiv);
+            total += pieza.precio;
+        });
+        document.getElementById('cart-button').innerText = `Carrito (${carrito.length}) - Total: $${total.toFixed(2)}`;
+    }
+}
+
+
+
+function suscribirse() {
+    const email = document.getElementById('email').value;
+    if (email) {
+        alert(`Te has suscrito con éxito a nuestro boletín, ${email}`);
+    } else {
+        alert('Por favor, ingresa tu correo electrónico.');
+    }
+}
+
+
+
+function procesarPago() {
+    const direccion = document.getElementById('direccion').value;
+    const tarjeta = document.getElementById('tarjeta').value;
+
+    if (direccion && tarjeta) {
+        alert('Pago procesado con éxito');
+        carrito = [];  // Vaciar el carrito
+        actualizarCarrito();
+    } else {
+        alert('Por favor, complete todos los campos.');
+    }
+}
+
+function mostrarRecomendaciones() {
+    const recomendaciones = piezas.filter(pieza => pieza.precio < 5000);
+    recomendaciones.forEach(pieza => {
+        const recomendacionDiv = document.createElement('div');
+        recomendacionDiv.classList.add('pieza');
+        recomendacionDiv.innerHTML = `
+            <img src="${pieza.imagen}" alt="${pieza.nombre}">
+            <h4>${pieza.nombre}</h4>
+            <p>${pieza.descripcion}</p>
+            <p>Precio: $${pieza.precio.toFixed(2)}</p>
+            <button onclick="agregarAlCarrito(${pieza.id})">Agregar al Carrito</button>
+        `;
+        document.getElementById('catalogo').appendChild(recomendacionDiv);
+    });
+}
+
+
+
+
+
+
+
+
+        
+
+        // Carrusel de imágenes
+        let indiceSlideActual = 0;
+        const slides = document.querySelectorAll('.slider img');
+
+        function mostrarSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === indiceSlideActual) {
+                    slide.classList.add('active');
+                }
+            });
+            indiceSlideActual = (indiceSlideActual + 1) % slides.length; // Cambiar al siguiente slide
+        }
+
+        // Cambiar de slide cada 3 segundos
+        setInterval(mostrarSlide, 3000);
+
+        // Cargar las piezas al inicio
+        loadPiezas();
+    </script>
+</body>
+</html>
